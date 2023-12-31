@@ -1,0 +1,34 @@
+.header__logo {
+    width: 550px;
+}
+
+.title {
+    font-size: 5.3rem;
+    line-height: 7.9rem;
+    font-weight: 250;
+    color: aliceblue;
+}
+
+.main__title {
+    width: 500px;
+}
+
+.container__timer {
+    width: 500px;
+    height: 350px;
+}
+
+.container__timer a {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    padding: 8px 4px 8px 4px;
+}
+
+.container__timer p {
+    font-size: 11.2rem;
+    line-height: 13.8rem;
+}
+
+footer {
+    width: 100%;
+}

@@ -1,0 +1,7 @@
+.main{
+    flex-direction: row;
+}
+
+.container__timer {
+    margin-left: 40px;
+}
