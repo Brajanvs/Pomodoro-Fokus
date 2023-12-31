@@ -78,7 +78,7 @@ function stop() {
 
 function resetTimer() {
     stop();
-    let selectedElement = document.querySelector(".select");
+    let selectedElement = document.querySelector(".button");
     resetTimerByElement(selectedElement);
 }
 
