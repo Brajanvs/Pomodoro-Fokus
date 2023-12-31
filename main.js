@@ -33,6 +33,13 @@ function stop() {
     timerButton.innerHTML = "Iniciar"
 }
 
+// function resetTimer() {
+//     stop();
+//     timeSeconds = 1500; // Reinicia el tiempo a 25 minutos (1500 segundos)
+//     showTime();
+//     timerButton.innerHTML = "Iniciar";
+// }
+
 function pad(num) {
     return num < 10 ? "0" + num : " " + num;
 }

@@ -1,5 +1,7 @@
 const timerElement = document.getElementById("timer");
 const timerButton = document.getElementById("timerButton");
+const resetButton = document.getElementById("resetButton");
+const audioPlayer = document.getElementById("audioPlayer");
 const progresses = document.querySelectorAll(".select");
 const timeSeconds = 1500;
 const shortBreakSeconds = 300;
@@ -7,8 +9,7 @@ const longBreakSeconds = 900;
 let timer = timeSeconds;
 let intervalId;
 
-
-//ojo
+audioPlayer.volume = 0.2;
 
 timerButton.addEventListener("click", () => {
     if (intervalId) {
@@ -18,7 +19,6 @@ timerButton.addEventListener("click", () => {
     }
 })
 
-// Ojo aqui
 
 progresses.forEach(element => {
     element.addEventListener('click', function() {
@@ -38,8 +38,6 @@ function selectProgress(element) {
 }
 
 
-// ojo
-
 function showTime()  {
     let minutes = Math.floor(timer/60);
     let seconds = timer % 60;    
@@ -58,13 +56,15 @@ function startTimer() {
     timerButton.textContent = "Pausar";
     intervalId = setInterval(() => {        
         if (timer === 0) {  
-            let current = document.querySelector(".button");
+            let current = document.querySelector(".select");
             resetTimerByElement(current);          
             return;
         }
         timer--;
         showTime();
     }, 1000);
+
+    audioPlayer.play();
 }
 
 
@@ -72,7 +72,16 @@ function stop() {
     clearInterval(intervalId);
     intervalId = null;
     timerButton.innerHTML = "Iniciar"
+    audioPlayer.pause();
 }
+
+
+function resetTimer() {
+    stop();
+    let selectedElement = document.querySelector(".select");
+    resetTimerByElement(selectedElement);
+}
+
 
 function resetTimerBySeconds(seconds) {    
     stop();
@@ -89,3 +98,6 @@ function resetTimerByElement(element) {
         resetTimerBySeconds(longBreakSeconds);       
     }
 }
+
+resetButton.addEventListener("click", resetTimer);
+
